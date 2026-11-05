@@ -1,0 +1,8 @@
+{
+  "name": "BASIC DAY",
+  "description": "Make progress. One day at a time. A calm, liquid glass personal-life management app combining daily tasks, goals, habits, and dynamic AI planning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Default dynamic theme variables */
+  --liquid-accent: 99, 102, 241;
+  --liquid-accent-hex: #6366f1;
+  --liquid-accent-light: rgba(99, 102, 241, 0.12);
+  --liquid-accent-glow: rgba(99, 102, 241, 0.28);
+  --liquid-accent-fg: #ffffff;
+}
+
+/* Prevent unwanted pull-to-refresh on mobile shells while keeping natural scroll */
+body {
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+input, textarea {
+  user-select: auto;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 150, 150, 0.4);
+}
+
+/* Liquid Glass Core Classes */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.8),
+    0 10px 30px -5px rgba(0, 0, 0, 0.04),
+    0 0 1px 1px rgba(0, 0, 0, 0.02);
+}
+
+.dark .liquid-glass {
+  background: rgba(28, 25, 23, 0.55);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.15),
+    0 12px 36px -4px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.liquid-glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.9),
+    0 8px 32px 0 rgba(0, 0, 0, 0.03);
+}
+
+.dark .liquid-glass-card {
+  background: rgba(26, 26, 26, 0.62);
+  backdrop-filter: blur(26px) saturate(170%);
+  -webkit-backdrop-filter: blur(26px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.18),
+    0 12px 40px 0 rgba(0, 0, 0, 0.45);
+}
+
+/* Subtle Specular Highlights on Interactive Glass */
+.liquid-glass-interactive {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-interactive:hover {
+  transform: translateY(-1px);
+  border-color: rgba(var(--liquid-accent), 0.4);
+  box-shadow: 
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.9),
+    0 14px 28px -4px rgba(var(--liquid-accent), 0.12);
+}
+
+.dark .liquid-glass-interactive:hover {
+  transform: translateY(-1px);
+  border-color: rgba(var(--liquid-accent), 0.4);
+  box-shadow: 
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.25),
+    0 14px 32px -4px rgba(var(--liquid-accent), 0.25);
+}
+
+/* Fluid Organic Ambient Light Orbs */
+@keyframes fluid-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -20px) scale(1.08); }
+}
+
+@keyframes fluid-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-25px, 25px) scale(1.05); }
+}
+
+.animate-liquid-orb-1 {
+  animation: fluid-drift-1 14s ease-in-out infinite;
+}
+
+.animate-liquid-orb-2 {
+  animation: fluid-drift-2 18s ease-in-out infinite;
+}
